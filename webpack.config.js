@@ -6,8 +6,11 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: {
-        'app':              './src/index.js',
-        'assets/js/banner': './src/assets/js/banner.js',
+        'app':                './src/index.js',
+        'assets/js/banner':   './src/assets/js/banner.js',
+        'assets/js/tabs':     './src/assets/js/tabs.js',
+        'assets/js/upload':  './src/assets/js/upload.js',
+        'assets/js/chart':  './src/assets/js/chart.js'
     },
     output: {
         path: path.join(__dirname, '/app'),
@@ -51,22 +54,24 @@ module.exports = {
               'css-loader',
               'postcss-loader',
               'sass-loader',
-
             ]
           },
           {
             test: /\.(svg|eot|woof|woof2|)$/,
-            exclude:/iamge/,
-            use:[
-              {
-                loader:"file-loader",
-                options:{
-                  name:'[name].[ext]',
-                  outputPath:"assets/fonts"
-                }
-              }
-            ]            
-          }
+              exclude:/images/,
+                type: "asset/resource",
+                  generator: {
+                    filename: "assets/fonts/[hash][ext]",
+                  },       
+          },
+          {
+                      test: /\.(png|svg|jpe?g|gif)$/,
+                        exclude: /fonts/,
+                          type: "asset/resource",
+                            generator: {
+                              filename: "assets/images/[hash][ext]",
+                            },
+          },
         ]
     },
     
@@ -92,14 +97,59 @@ module.exports = {
         chunks: ['app']
         }),
       new HtmlWebpackPlugin({
-      filename: 'components/card.html',
-      template: './src/components/card.html',
-      chunks: ['app']
+            filename: 'components/card.html',
+            template: './src/components/card.html',
+            chunks: ['app']
         }),
       new HtmlWebpackPlugin({
-      filename: 'components/banner.html',
-      template: './src/components/banner.html',
-      chunks: ['app', 'assets/js/banner']
+        filename: 'components/banner.html',
+        template: './src/components/banner.html',
+        chunks: ['app', 'assets/js/banner']
         }),
+      new HtmlWebpackPlugin({
+        filename: 'components/list.html',
+        template: './src/components/list.html',
+        chunks: ['app']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/tabs.html',
+        template: './src/components/tabs.html',
+        chunks: ['app', 'assets/js/tabs']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/upload.html',
+        template: './src/components/upload.html',
+        chunks: ['app', 'assets/js/upload']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/help.html',
+        template: './src/components/help.html',
+        chunks: ['app']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/summary.html',
+        template: './src/components/summary.html',
+        chunks: ['app']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/actions.html',
+        template: './src/components/actions.html',
+        chunks: ['app']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/sidebar.html',
+        template: './src/components/sidebar.html',
+        chunks: ['app']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/table.html',
+        template: './src/components/table.html',
+        chunks: ['app']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'components/chart.html',
+        template: './src/components/chart.html',
+        chunks: ['app', 'assets/js/chart']
+      }),
   ]
 }

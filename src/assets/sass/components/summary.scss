@@ -1,0 +1,40 @@
+.c-summary{
+    @include e-card;
+    display: inline-flex;
+    align-items: center;
+    padding: spacing("small") spacing("wide");
+}
+.c-summary__data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: spacing("normal");
+    &:last-child{
+        margin-left: spacing("none");
+    }
+}
+.c-summary__value{
+    font-weight: bold;
+    font-size: 28px;
+    font-family: $family-headings;
+    &--positive{
+        color:$color-blue;
+    }
+    &--negative{
+        color:$color-red
+    }
+}
+.c-summary__key{
+    font-weight: 600;
+}
+.c-summary--boxless{
+    background: none;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+.c-summary--small{
+    .c-summary__key, .c-summary__value{
+        font-size: 13px;
+        font-weight: normal;
+    }
+}
