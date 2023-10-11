@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتج جديد</title>
+</head>
+<body>
+    <div class="page-container">
+        <sidebar></sidebar>
+        <div class="single-page">
+            <header class="page-header">
+                <h1 class="page-title">إضافة منتج</h1>
+                <button class="c-btn c-btn--primary" type="submit" name="submit" form="add-product">إضافة منتج</button>
+                <button class="c-btn" type="submit" name="draft" form="add-product">حفظ كمسودة</button>
+            </header>
+            <from action="" class="c-form" name="add-product">
+                <div class="c-upload js-upload">
+                    <header class="c-upload__header">
+                        <h4 class="c-upload__title">صورة المنتج</h4>
+                        <label for="upload-image" class="c-upload__label">ارفع الصورة</label>
+                        <span class="c-upload__label c-upload__label--remove js-upload-remove">احذف الصورة</span>
+                    </header>
+                    <div class="c-upload__body">
+                        <div class="c-upload__image"><img class="js-upload-placeholder"></div>
+                        <input type="file" name="upload-image" id="upload-image" class="c-upload__field js-upload-value" accept="image/*">
+                        <span class="c-upload__subtitle">اسحب الصورة هنا لترفعها</span>
+                    </div>            
+                </div>
+                <div class="c-form__controls">
+                    <div class="c-form__row">
+                        <div class="c-textfield">
+                            <label for="product-name" class="c-textfield_label">اسم المنتج</label>
+                            <input type="text" class="c-textfield_input" id="product-name" placeholder="مثلاً: قميص ابيض" required>
+                        </div>
+                    </div>
+                    <div class="c-form__row">
+                        <div class="c-textfield">
+                            <label for="product-price" class="c-textfield_label">سعر المنتج</label>
+                            <input type="number" class="c-textfield_input c-textfield_input--left" id="product-price" placeholder="$" required>
+                        </div>
+                        <div class="c-textfield">
+                            <label for="product-price-2" class="c-textfield_label">السعر الثانوي</label>
+                            <input type="number" class="c-textfield_input c-textfield_input--left" id="product-price-2" placeholder="ربال" required>
+                        </div>
+                    </div>
+                    <div class="c-form__row">
+                        <div class="c-textfield">
+                            <label for="product-desc" class="c-textfield_label">وصف المنتج</label>
+                            <textarea id="product-desc" class="c-textfield_textarea" placeholder="ادخل الوصف"></textarea>
+                            <span class="c-textfield_hint"></span>
+                        </div>
+                    </div>
+                    <div class="c-form__row">
+                        <div class="c-textfield">
+                            <label for="height" class="c-textfield_label">الأبعاد</label>
+                            <input type="number" class="c-textfield_input" id="height" placeholder="" required>
+                            <span class="c-textfield_hint">يالسنتيمتر</span>
+                        </div>
+                        <div class="c-textfield">                            
+                            <label for="width" class="c-textfield_label"><br></label>
+                            <input type="number" class="c-textfield_input" id="width" placeholder="" required>
+                            <span class="c-textfield_hint"></span>
+                        </div>
+                        <div class="c-textfield">
+                            <label for="depth" class="c-textfield_label"><br></label>
+                            <input type="number" class="c-textfield_input" id="depth" placeholder="" required>
+                            <span class="c-textfield_hint"></span>
+                        </div>
+                        <div class="c-textfield">
+                            <label for="weight" class="c-textfield_label">الوزن</label>
+                            <input type="number" class="c-textfield_input" id="weight" placeholder="" required>
+                            <span class="c-textfield_hint">kg</span>
+                        </div>
+                    </div>
+                </div>
+            </from>
+            <help></help>
+        </div>        
+    </div>    
+</body>
+</html>
